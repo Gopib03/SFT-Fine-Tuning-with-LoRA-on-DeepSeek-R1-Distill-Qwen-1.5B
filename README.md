@@ -1,25 +1,62 @@
-# Log-Classification-Pipeline-Using-Regex-Sentence-Transformers-and-LLMs
+Scalable SFT Fine-Tuning with LoRA on DeepSeek-R1-Distill-Qwen-1.5B
+Overview
 
+This project demonstrates large-scale supervised fine-tuning (SFT) using LoRA/QLoRA on a distilled reasoning model, optimized for performance and cost efficiency.
 
-Python | FastAPI | Regex | Sentence Transformers | Logistic Regression | LLMs
+Training Setup
 
-Developed a scalable log classification pipeline that integrates rule-based, machine learning, and large language model (LLM) techniques to handle diverse log message patterns with varying complexity and labeling quality.
+Model: DeepSeek-R1-Distill-Qwen-1.5B
 
-Designed a modular system combining:
+Dataset: 1M instruction samples
 
-Regex-based classification for highly structured and predictable log formats.
+Trainer: TRL SFTTrainer
 
-Sentence Transformer embeddings with Logistic Regression for supervised classification of semi-structured logs.
+Fine-tuning method: LoRA / QLoRA
 
-LLM-based classification to manage complex, low-label scenarios by leveraging generative language understanding.
+Performance
 
-Built a RESTful API using FastAPI for real-time log file uploads and processing.
+Throughput: 200K+ examples/sec
 
-Enabled users to submit CSV files containing log entries (source, log_message) and receive classified output with target_label.
+Training loss: 1.46 → 1.37
 
-Implemented interactive API documentation with Swagger (/docs) and ReDoc (/redoc) for easy testing and integration.
+Validation loss: 1.31
 
-Organized the project with a clean folder structure supporting training, models, and reusable resource files.
+Optimization Techniques
 
-Outcome:
-Delivered a hybrid, extensible log classification solution suitable for production environments, supporting intelligent log analysis even in cases of low-quality or missing labels.
+Tuned:
+
+LoRA rank
+
+LoRA alpha
+
+Learning rate
+
+Achieved better generalization and stable convergence
+
+Deployment
+
+Model deployed to Hugging Face Hub
+
+Supports 16K token long-context instruction following
+
+Ready for downstream production applications
+
+Tech Stack
+
+Python
+
+Hugging Face Transformers
+
+TRL
+
+PEFT
+
+LoRA / QLoRA
+
+Applications
+
+Instruction-following assistants
+
+RAG backends
+
+Agent reasoning models
